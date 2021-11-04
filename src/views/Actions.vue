@@ -7,59 +7,17 @@
 <script lang="ts">
 import { defineComponent } from '@vue/runtime-core'
 
-interface StackInterface {
-    size: number;
-    top: number | null
-    // eslint-disable-next-line no-unused-vars
-    push(val: number): number
-    pop(): number | null
-}
-
-class Stack implements StackInterface {
-    size: number
-    top: number | null
-
-    constructor() {
-        this.size = 0;
-        this.top = null;
-    }
-
-    push(val: number): number {
-        this.top = val;
-        this.size += 1;
-        return this.size;
-    }
-    pop(): number | null {
-        if(this.size > 0) {
-            let removeTop = this.top
-            this.top = removeTop;
-            this.size -= 1;
-            removeTop = null;
-            return removeTop;
-        }
-        return null;
-    }
-    
-}
-
 export default defineComponent({
     name: 'Actions',
     data() {
         return  {
-            stack: new Stack,
-            popData: 0 as any
+            
         }
     },
     methods: {
 
     },
     mounted() {
-        this.stack.push(1);
-        console.log(this.stack);
-        this.stack.push(2);
-        console.log(this.stack);
-        this.popData = this.stack.pop();
-        console.log(this.popData);
     }
 })
 </script>
