@@ -1,17 +1,28 @@
 <template>
     <div class="actions">
         <h1>Actions</h1>
+        <div class="legend">
+
+        </div>
+        <div class="foff" v-for="action in actions" :key="action.id">
+            <action :name="action.name" :numberOfActions="action.number" :text="action.text"/>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@vue/runtime-core'
+import Action from '@/components/Action.vue'
+import listOfActions from '@/assets/listOfActions'
 
 export default defineComponent({
     name: 'Actions',
+    components: {
+        Action,
+    },
     data() {
         return  {
-            
+            actions: listOfActions
         }
     },
     methods: {
